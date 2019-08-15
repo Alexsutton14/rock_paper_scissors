@@ -1,6 +1,7 @@
 *{
     padding: 0;
     margin: 0;
+    text-align: center;
 }
 body{
     background-color: grey;
@@ -15,7 +16,7 @@ body{
 }
 .buttons-wrapper{
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     text-align: center;
 }
 .button{
@@ -23,9 +24,8 @@ body{
     background-color: blue;
     padding: 10px;
     cursor: pointer;
-    margin: auto;
 }
-.button :hover{
+.button:hover{
     background-color: teal;
 }
 .choicebox{
@@ -52,5 +52,7 @@ body{
     padding: 0;
 }
 .result{
+    margin-top: 10px;
+    position: relative;
     background-color: white;
 }
