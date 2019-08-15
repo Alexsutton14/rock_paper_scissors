@@ -6,7 +6,7 @@ body{
     background-color: grey;
 }
 .container{
-    width: max-content;
+    width: 400px;
     padding: 30px;
     margin: auto;
 }
@@ -14,14 +14,19 @@ body{
     margin-bottom: 10px;
 }
 .buttons-wrapper{
-    width: max-content;
+    width: 100%;
     margin-bottom: 10px;
+    text-align: center;
 }
-a{
+.button{
+    box-sizing: border-box;
     background-color: blue;
-    padding: 5px;
+    padding: 10px;
     cursor: pointer;
     margin: auto;
+}
+.button :hover{
+    background-color: teal;
 }
 .choicebox{
     box-sizing: border-box;
@@ -37,10 +42,15 @@ a{
 }
 .choicebox p{
     width: 100%;
+    padding: 5px 0 0 0;
     text-align: center;
 }
 .choicecontent{
     width: 100%;
     text-align: center;
     font-size: 30px;
+    padding: 0;
+}
+.result{
+    background-color: white;
 }

@@ -9,9 +9,9 @@
             <h1>Rock, Paper, Scissors</h1>
             <p class="instructions">Choose:</p>
             <div class="buttons-wrapper">
-                <a id="rock">Rock</a>
-                <a id="paper">Paper</a>
-                <a id="scissors">Scissors</a>
+                <a id="rock" class="button">Rock</a>
+                <a id="paper" class="button">Paper</a>
+                <a id="scissors" class="button">Scissors</a>
             </div>
             <div class="result-container">
                 <div id="player-choice" class="choicebox">
@@ -22,7 +22,9 @@
                     <p>Computer chose:</p>
                     <p id="computer-output" class="choicecontent"></p>
                 </div>
-                <p id="result"></p>
+                <div class="result">
+                    <p id="result-text">Result text here that continues for a few words</p>
+                </div>
             </div>
     </div>
     <script src="game.js"></script>

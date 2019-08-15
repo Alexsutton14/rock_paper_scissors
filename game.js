@@ -2,8 +2,14 @@ var playerScore = 0;
 var computerScore = 0;
 var currentPlayerChoice;
 var currentComputerChoice;
+
+//finds HTML elements to display results
 const playerChoiceDisplay = document.getElementById("player-output");
 const computerChoiceDisplay = document.getElementById("computer-output");
+const resultDisplay = document.getElementById("result-text");
+const playerScoreDisplay = document.getElementById("player-score-value");
+const computerScoreDisplay = document.getElementById("computer-score-display");
+
 function computerChoice(){
     let choice = Math.floor(Math.random()*3);
     switch (choice){
@@ -40,7 +46,7 @@ function decideWinner(playerChoice, computerChoice){
 
     playerChoiceDisplay.textContent = currentPlayerChoice;
     console.log(currentComputerChoice);
-    currentComputerChoice.textContent = currentComputerChoice;
+    computerChoiceDisplay.textContent = currentComputerChoice;
 
     if(playerChoice === computerChoice){
         return "It's a draw!";
@@ -88,8 +94,6 @@ function playGame (buttonInput){
     currentPlayerChoice = capitaliseChoice(input);
     let result = decideWinner(input, computerChoice());
     console.log(result);
-    //displayResult(result)
-    document.getElementById("result").innerHTML = result;
 }
 const buttons = document.querySelectorAll("a");
 buttons.forEach((a) => {
