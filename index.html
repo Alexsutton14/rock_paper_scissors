@@ -2,69 +2,29 @@
 <html>
     <head>
         <title>Rock, Paper, Scissors</title>
+        <link href="index.css" type="text/css" rel="stylesheet">
     </head>
     <body>
-        <select id="player-input" name="player-input">
-            <option value="rock">Rock</option>
-            <option value="paper">Paper</option>
-            <option value="scissors">Scissors</option>
-        </select>
-        <button id="playbutton">Play!</button>
-        <br>
-        <p id="result"></p>
-        <script>
-                function computerChoice(){
-                    let choice = Math.floor(Math.random()*3);
-                    switch (choice){
-                        case 0:
-                            return "rock";
-                            break;
-                        case 1:
-                            return "paper";
-                            break;
-                        case 2:
-                            return "scissors";
-                            break;
-                        default:
-                            console.log("Error in computerChoice");
-                            break;
-                    }
-                }
-                function decideWinner(playerChoice, computerChoice){
-                    console.log(`Computer chooses ${computerChoice}.`);
-                    const rockWinDetails = "Rock blunts Scissors!";
-                    const paperWinDetails = "Paper covers Rock!";
-                    const scissorsWinDetails = "Scissors cuts Paper!";
-                    if(playerChoice === computerChoice){
-                        return "It's a draw!";
-                    } else if(playerChoice === "rock" && computerChoice === "scissors"){
-                        return "You Win! " + rockWinDetails;
-                    } else if(playerChoice === "paper" && computerChoice === "rock"){
-                        return "You Win! " + paperWinDetails;
-                    } else if(playerChoice === "scissors" && computerChoice === "paper"){
-                        return "You Win! " + scissorsWinDetails;
-                    } else {
-                        switch(computerChoice){
-                            case "rock":
-                                return "You Lose! " + rockWinDetails;
-                                break;
-                            case "paper":
-                                return "You Lose! " + paperWinDetails;
-                                break;
-                            case "scissors":
-                                return "You Lose! " + scissorsWinDetails;
-                                break;
-                        }
-                    }
-                }
-                function playGame (){
-                    let input = document.getElementById("player-input").value;
-                    console.log(input);
-                    let result = decideWinner(input, computerChoice());
-                    console.log(result);
-                    document.getElementById("result").innerHTML = result;
-                }
-                document.getElementById("playbutton").addEventListener("click", playGame);
-            </script>
+        <div class="container">
+            <h1>Rock, Paper, Scissors</h1>
+            <p class="instructions">Choose:</p>
+            <div class="buttons-wrapper">
+                <a id="rock">Rock</a>
+                <a id="paper">Paper</a>
+                <a id="scissors">Scissors</a>
+            </div>
+            <div class="result-container">
+                <div id="player-choice" class="choicebox">
+                    <p>You chose:</p>
+                    <p id="player-output" class="choicecontent"></p>
+                </div>
+                <div id="computer-choice" class="choicebox">
+                    <p>Computer chose:</p>
+                    <p id="computer-output" class="choicecontent"></p>
+                </div>
+                <p id="result"></p>
+            </div>
+    </div>
+    <script src="game.js"></script>
     </body>
 </html>

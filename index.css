@@ -1,0 +1,46 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: grey;
+}
+.container{
+    width: max-content;
+    padding: 30px;
+    margin: auto;
+}
+.instructions{
+    margin-bottom: 10px;
+}
+.buttons-wrapper{
+    width: max-content;
+    margin-bottom: 10px;
+}
+a{
+    background-color: blue;
+    padding: 5px;
+    cursor: pointer;
+    margin: auto;
+}
+.choicebox{
+    box-sizing: border-box;
+    width: 50%;
+    height: 80px;
+    background-color: white;
+    border: 1px solid black;
+}
+#computer-choice{
+    position: relative;
+    top: -80px;
+    float: right;
+}
+.choicebox p{
+    width: 100%;
+    text-align: center;
+}
+.choicecontent{
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+}
