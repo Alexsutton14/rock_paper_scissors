@@ -7,7 +7,7 @@
     <body>
         <div class="container">
             <h1>Rock, Paper, Scissors</h1>
-            <p class="instructions">Choose:</p>
+            <p class="instructions">Choose your move, first to 5 wins!</p>
             <div class="buttons-wrapper">
                 <a id="rock" class="button">Rock</a>
                 <a id="paper" class="button">Paper</a>
@@ -27,14 +27,19 @@
                 <p id="result-text"></p>
                 <h2 id="winner-display"></h2>
             </div>
-            <div class="score">
-                <span id="score-label">You - Computer</span>
-                <br>
-                <span id="player-score-value">0</span>
-                <span id="spacer">-</span>
-                <span id="computer-score-value">0</span>
-            </div>
-            <a id="reset-button" class="button">Play Again</a>
+            <table class="score-table">
+                <tr>
+                    <th class="table-left">You</th>
+                    <th class="spacer">-</th>
+                    <th class="table-right">CPU</th>
+                </tr>
+                <tr>
+                    <td id="player-score-value" class="table-left">0</td>
+                    <td class="spacer">-</td>
+                    <td id="computer-score-value" class="table-right">0</td>
+                </tr>
+            </table>
+            <a id="reset-button">Play Again</a>
     </div>
     <script src="game.js"></script>
     </body>

@@ -81,15 +81,15 @@ function decideWinner(playerChoice, computerChoice){
         switch(computerChoice){
             case "rock":
                 addPoint("computer");
-                return "You Lose! " + rockLossDetails;
+                return "You Lose! " + scissorsLossDetails;
                 break;
             case "paper":
                 addPoint("computer");
-                return "You Lose! " + paperLossDetails;
+                return "You Lose! " + rockLossDetails;
                 break;
             case "scissors":
                 addPoint("computer");
-                return "You Lose! " + scissorsLossDetails;
+                return "You Lose! " + paperLossDetails;
                 break;
         }
     }
