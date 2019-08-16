@@ -8,9 +8,12 @@ const playerChoiceDisplay = document.getElementById("player-output");
 const computerChoiceDisplay = document.getElementById("computer-output");
 const resultDisplay = document.getElementById("result-text");
 const playerScoreDisplay = document.getElementById("player-score-value");
-const computerScoreDisplay = document.getElementById("computer-score-display");
+const computerScoreDisplay = document.getElementById("computer-score-value");
+const resetButton = document.getElementById("reset-button");
+const winnerDisplay = document.getElementById("winner-display");
 
 function computerChoice(){
+    //Generate random number between 0 and 3
     let choice = Math.floor(Math.random()*3);
     switch (choice){
         case 0:
@@ -27,13 +30,28 @@ function computerChoice(){
             break;
         default:
             console.log("Error in computerChoice");
+            return "scissors";
             break;
     }
 }
-function addPoint(){
-    playerScore++
-    if(playerScore >= 5){
-        console.log("You Win!");
+function addPoint(winner){
+    if(winner === "player"){
+        playerScore++;
+        playerScoreDisplay.textContent = playerScore;
+        if(playerScore >= 5){
+            console.log("You Win!");
+            winnerDisplay.textContent = "You Win!";
+            resetButton.style.visibility = "visible";
+        }
+    }
+    if(winner === "computer"){
+        computerScore++;
+        computerScoreDisplay.textContent = computerScore;
+        if(computerScore >= 5){
+            console.log("Computer Wins!");
+            winnerDisplay.textContent = "Computer Wins!";
+            resetButton.style.visibility = "visible";
+        }
     }
 }
 function decideWinner(playerChoice, computerChoice){
@@ -51,26 +69,26 @@ function decideWinner(playerChoice, computerChoice){
     if(playerChoice === computerChoice){
         return "It's a draw!";
     } else if(playerChoice === "rock" && computerChoice === "scissors"){
-        addPoint();
+        addPoint("player");
         return "You Win! " + rockWinDetails;
     } else if(playerChoice === "paper" && computerChoice === "rock"){
-        addPoint();
+        addPoint("player");
         return "You Win! " + paperWinDetails;
     } else if(playerChoice === "scissors" && computerChoice === "paper"){
-        addPoint();
+        addPoint("player");
         return "You Win! " + scissorsWinDetails;
     } else {
         switch(computerChoice){
             case "rock":
-                playerScore = 0;
+                addPoint("computer");
                 return "You Lose! " + rockLossDetails;
                 break;
             case "paper":
-                playerScore = 0;
+                addPoint("computer");
                 return "You Lose! " + paperLossDetails;
                 break;
             case "scissors":
-                playerScore = 0;
+                addPoint("computer");
                 return "You Lose! " + scissorsLossDetails;
                 break;
         }
@@ -93,11 +111,28 @@ function playGame (buttonInput){
     let input = buttonInput;
     currentPlayerChoice = capitaliseChoice(input);
     let result = decideWinner(input, computerChoice());
-    console.log(result);
+    resultDisplay.textContent = result;
+}
+function resetGame (){
+    //resets all scores to zero and string values to null
+    playerScore = 0;
+    playerScoreDisplay.textContent = playerScore;
+    currentPlayerChoice = null;
+    playerChoiceDisplay.textContent = currentPlayerChoice;
+    computerScore = 0;
+    computerScoreDisplay.textContent = computerScore;
+    currentComputerChoice = null;
+    computerChoiceDisplay.textContent = currentComputerChoice;
+    resultDisplay.textContent = null;
+    winnerDisplay.textContent = null;
+    resetButton.style.visibility = "hidden";
 }
 const buttons = document.querySelectorAll("a");
 buttons.forEach((a) => {
-a.addEventListener('click', function(){
-    playGame(a.id);
-  })
+    if(a.id !== "reset-button"){
+        a.addEventListener("click", function(){
+            playGame(a.id);
+          })
+    }
 })
+resetButton.addEventListener("click", resetGame);

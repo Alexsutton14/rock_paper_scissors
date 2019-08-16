@@ -28,17 +28,21 @@ body{
 .button:hover{
     background-color: teal;
 }
+.result-container{
+    margin-bottom: 10px;
+}
 .choicebox{
     box-sizing: border-box;
-    width: 50%;
+    display: inline-block;
+    width: 49%;
     height: 80px;
     background-color: white;
     border: 1px solid black;
 }
 #computer-choice{
     position: relative;
-    top: -80px;
-    float: right;
+    /*top: -80px;
+    float: right;*/
 }
 .choicebox p{
     width: 100%;
@@ -53,6 +57,16 @@ body{
 }
 .result{
     margin-top: 10px;
-    position: relative;
+    margin-bottom: 10px;
     background-color: white;
+}
+.score{
+    margin-bottom: 10px;
+}
+#score-label{
+    width: max-content;
+    margin: auto;
+}
+#reset-button{
+    visibility: hidden
 }
