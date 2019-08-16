@@ -6,6 +6,11 @@
 body{
     background-color: grey;
 }
+@media only screen and (max-width: 768px){
+    .container{
+        width: 100%;
+    }
+}
 .container{
     width: 400px;
     padding: 30px;
@@ -21,6 +26,7 @@ body{
 }
 .button{
     box-sizing: border-box;
+    color: white;
     background-color: blue;
     padding: 10px;
     cursor: pointer;
